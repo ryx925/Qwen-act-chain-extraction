@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.venv/
+.venv-wsl/
+.env
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data, model weights, and generated artifacts
+data/raw/**
+data/interim/**
+data/processed/**
+models/base/**
+models/adapters/**
+models/merged/**
+outputs/**
+
+# Keep directory placeholders
+!**/.gitkeep
+
+# Model and checkpoint files
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt

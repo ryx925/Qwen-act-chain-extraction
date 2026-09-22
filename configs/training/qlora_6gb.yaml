@@ -1,0 +1,37 @@
+# 面向 RTX 3060 Laptop 6GB 的保守起点；正式训练前需用真实样本做显存试跑。
+output_dir: outputs/checkpoints/qwen3-1.7b-trip-chain-qlora
+num_train_epochs: 3
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+learning_rate: 0.0002
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+logging_steps: 10
+eval_strategy: steps
+eval_steps: 100
+save_strategy: steps
+save_steps: 100
+save_total_limit: 2
+max_length: 1024
+bf16: true
+tf32: true
+optim: paged_adamw_8bit
+seed: 42
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+

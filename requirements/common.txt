@@ -1,0 +1,24 @@
+# Packages that do not require a local PyTorch installation.
+# Qwen3 requires transformers >= 4.51.0.
+transformers>=4.51,<6
+datasets>=3.2,<5
+safetensors>=0.4.5,<1
+sentencepiece>=0.2,<1
+
+# Data, configuration, evaluation, and experiment utilities
+pandas>=2.2,<4
+numpy>=1.26,<3
+scikit-learn>=1.5,<2
+pyyaml>=6,<7
+python-dotenv>=1,<2
+tqdm>=4.66,<5
+jsonschema>=4.23,<5
+# Reliable model snapshot download in mainland-China network environments.
+modelscope>=1.40,<2
+# TensorBoard is intentionally optional on this Windows/Python build because
+# the package index currently has no compatible grpcio wheel. Training can log
+# JSON/CSV until it is added through requirements/optional.txt.
+
+# Development and validation
+pytest>=8,<10
+ruff>=0.8,<2

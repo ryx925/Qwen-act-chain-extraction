@@ -1,0 +1,12 @@
+# 字段名将在确定数据集格式和标注体系后与数据处理脚本对齐。
+raw_dir: data/raw
+interim_dir: data/interim
+processed_dir: data/processed
+schema_file: schemas/trip-chain.schema.json
+sample_file: data/samples/annotated_examples.jsonl
+train_file: data/processed/train.jsonl
+validation_file: data/processed/validation.jsonl
+test_file: data/processed/test.jsonl
+text_field: text
+label_field: trip_chain
+seed: 42

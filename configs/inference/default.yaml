@@ -1,0 +1,11 @@
+model_name_or_path: Qwen/Qwen3-1.7B
+adapter_path: models/adapters/qwen3-1.7b-trip-chain
+input_file: data/processed/test.jsonl
+output_file: outputs/predictions/test_predictions.jsonl
+max_input_length: 1024
+max_new_tokens: 512
+do_sample: false
+temperature: 0.0
+enable_thinking: false
+load_in_4bit: true
+

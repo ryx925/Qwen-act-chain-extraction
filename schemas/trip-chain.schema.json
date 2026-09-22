@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.example/schemas/trip-chain.schema.json",
+  "title": "纯文本出行链标注",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source_id", "text", "trip_chain"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "person_id": {"type": ["string", "null"]},
+    "text": {"type": "string", "minLength": 1},
+    "trip_chain": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/leg"}
+    }
+  },
+  "$defs": {
+    "nullableText": {"type": ["string", "null"]},
+    "leg": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "origin",
+        "destination",
+        "departure_time",
+        "arrival_time",
+        "transport_mode",
+        "purpose"
+      ],
+      "properties": {
+        "sequence": {"type": "integer", "minimum": 1},
+        "origin": {"$ref": "#/$defs/nullableText"},
+        "destination": {"$ref": "#/$defs/nullableText"},
+        "departure_time": {"$ref": "#/$defs/nullableText"},
+        "arrival_time": {"$ref": "#/$defs/nullableText"},
+        "transport_mode": {
+          "enum": [
+            "步行", "自行车", "电动自行车", "摩托车", "私家车", "网约车/出租车",
+            "公交车", "地铁", "火车", "高铁", "飞机", "船", "其他", "未知", null
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "回家", "上班", "上学", "购物", "就医", "休闲", "公务",
+            "接送", "换乘", "其他", "未知", null
+          ]
+        }
+      }
+    }
+  }
+}

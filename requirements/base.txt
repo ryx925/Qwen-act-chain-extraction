@@ -1,0 +1,7 @@
+-r common.txt
+
+# Install torch-cu128.txt before this file so these packages reuse the CUDA build.
+accelerate>=1.2,<3
+peft>=0.14,<1
+trl>=0.13,<1
+bitsandbytes>=0.48,<1

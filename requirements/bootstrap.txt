@@ -1,0 +1,9 @@
+# Lightweight project bootstrap; safe to install before the large CUDA/data stack.
+transformers>=4.51,<6
+safetensors>=0.4.5,<1
+sentencepiece>=0.2,<1
+pyyaml>=6,<7
+python-dotenv>=1,<2
+tqdm>=4.66,<5
+pytest>=8,<10
+ruff>=0.8,<2
