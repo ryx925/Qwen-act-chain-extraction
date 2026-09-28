@@ -29,6 +29,7 @@ models/base/**
 models/adapters/**
 models/merged/**
 outputs/**
+/litbank/
 
 # Keep directory placeholders
 !**/.gitkeep
