@@ -1,0 +1,279 @@
+{
+  "samples": 54,
+  "max_prompt": 1225,
+  "max_completion": 841,
+  "max_total": 1998,
+  "mean_total": 1478.3703703703704,
+  "rows": [
+    {
+      "id": "ch02_009",
+      "prompt": 1186,
+      "completion": 42
+    },
+    {
+      "id": "ch02_010",
+      "prompt": 1168,
+      "completion": 34
+    },
+    {
+      "id": "ch03_007",
+      "prompt": 1225,
+      "completion": 107
+    },
+    {
+      "id": "ch04_007",
+      "prompt": 1132,
+      "completion": 5
+    },
+    {
+      "id": "ch05_002",
+      "prompt": 1159,
+      "completion": 141
+    },
+    {
+      "id": "ch06_008",
+      "prompt": 1195,
+      "completion": 164
+    },
+    {
+      "id": "ch07_011",
+      "prompt": 1152,
+      "completion": 5
+    },
+    {
+      "id": "ch08_007",
+      "prompt": 1158,
+      "completion": 5
+    },
+    {
+      "id": "ch09_009",
+      "prompt": 1158,
+      "completion": 5
+    },
+    {
+      "id": "ch10_001",
+      "prompt": 1140,
+      "completion": 5
+    },
+    {
+      "id": "ch11_013",
+      "prompt": 1103,
+      "completion": 5
+    },
+    {
+      "id": "ch13_009",
+      "prompt": 1173,
+      "completion": 5
+    },
+    {
+      "id": "ch14_003",
+      "prompt": 1167,
+      "completion": 5
+    },
+    {
+      "id": "ch15_015",
+      "prompt": 1190,
+      "completion": 808
+    },
+    {
+      "id": "fiction_001",
+      "prompt": 1138,
+      "completion": 427
+    },
+    {
+      "id": "fiction_002",
+      "prompt": 1115,
+      "completion": 424
+    },
+    {
+      "id": "fiction_003",
+      "prompt": 1094,
+      "completion": 435
+    },
+    {
+      "id": "fiction_004",
+      "prompt": 1077,
+      "completion": 320
+    },
+    {
+      "id": "fiction_005",
+      "prompt": 1083,
+      "completion": 510
+    },
+    {
+      "id": "fiction_006",
+      "prompt": 1102,
+      "completion": 264
+    },
+    {
+      "id": "fiction_007",
+      "prompt": 1081,
+      "completion": 523
+    },
+    {
+      "id": "fiction_008",
+      "prompt": 1099,
+      "completion": 264
+    },
+    {
+      "id": "fiction_009",
+      "prompt": 1093,
+      "completion": 275
+    },
+    {
+      "id": "fiction_010",
+      "prompt": 1102,
+      "completion": 426
+    },
+    {
+      "id": "fiction_011",
+      "prompt": 1122,
+      "completion": 266
+    },
+    {
+      "id": "fiction_012",
+      "prompt": 1096,
+      "completion": 261
+    },
+    {
+      "id": "fiction_013",
+      "prompt": 1103,
+      "completion": 484
+    },
+    {
+      "id": "fiction_014",
+      "prompt": 1098,
+      "completion": 470
+    },
+    {
+      "id": "fiction_015",
+      "prompt": 1062,
+      "completion": 269
+    },
+    {
+      "id": "fiction_016",
+      "prompt": 1114,
+      "completion": 468
+    },
+    {
+      "id": "fiction_017",
+      "prompt": 1107,
+      "completion": 268
+    },
+    {
+      "id": "fiction_018",
+      "prompt": 1090,
+      "completion": 423
+    },
+    {
+      "id": "fiction_019",
+      "prompt": 1102,
+      "completion": 276
+    },
+    {
+      "id": "fiction_020",
+      "prompt": 1109,
+      "completion": 314
+    },
+    {
+      "id": "fiction_021",
+      "prompt": 1144,
+      "completion": 600
+    },
+    {
+      "id": "fiction_022",
+      "prompt": 1119,
+      "completion": 538
+    },
+    {
+      "id": "fiction_023",
+      "prompt": 1138,
+      "completion": 389
+    },
+    {
+      "id": "fiction_024",
+      "prompt": 1123,
+      "completion": 392
+    },
+    {
+      "id": "fiction_025",
+      "prompt": 1147,
+      "completion": 562
+    },
+    {
+      "id": "fiction_026",
+      "prompt": 1121,
+      "completion": 549
+    },
+    {
+      "id": "fiction_027",
+      "prompt": 1125,
+      "completion": 386
+    },
+    {
+      "id": "fiction_028",
+      "prompt": 1136,
+      "completion": 542
+    },
+    {
+      "id": "fiction_029",
+      "prompt": 1125,
+      "completion": 395
+    },
+    {
+      "id": "fiction_030",
+      "prompt": 1149,
+      "completion": 546
+    },
+    {
+      "id": "fiction_031",
+      "prompt": 1138,
+      "completion": 448
+    },
+    {
+      "id": "fiction_032",
+      "prompt": 1139,
+      "completion": 396
+    },
+    {
+      "id": "fiction_033",
+      "prompt": 1144,
+      "completion": 560
+    },
+    {
+      "id": "fiction_034",
+      "prompt": 1141,
+      "completion": 841
+    },
+    {
+      "id": "fiction_035",
+      "prompt": 1113,
+      "completion": 390
+    },
+    {
+      "id": "fiction_036",
+      "prompt": 1124,
+      "completion": 404
+    },
+    {
+      "id": "fiction_037",
+      "prompt": 1143,
+      "completion": 603
+    },
+    {
+      "id": "fiction_038",
+      "prompt": 1124,
+      "completion": 563
+    },
+    {
+      "id": "fiction_039",
+      "prompt": 1126,
+      "completion": 390
+    },
+    {
+      "id": "fiction_040",
+      "prompt": 1142,
+      "completion": 681
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+-r base.txt
+
+# Match the existing WSL environment and the GRPO API verified for this script.
+trl==0.29.1
+scipy>=1.11,<2
+matplotlib>=3.9,<4

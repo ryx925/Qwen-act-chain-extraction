@@ -1,0 +1,33 @@
+{
+  "samples": 54,
+  "human_approved": 14,
+  "synthetic": 40,
+  "chains": 72,
+  "nodes": 345,
+  "edges": 276,
+  "sources": [
+    {
+      "batch": "human_approved",
+      "source": "C:\\Users\\24171\\Desktop\\研\\GLiNER2\\annotation\\人工已审核\\approved_annotations.jsonl",
+      "rows": 14,
+      "sha256": "8e9de921558925988b84df3e69b64805a670e4b1bc7cda6f546b12bb98617684",
+      "archive": "originals/human_approved.jsonl"
+    },
+    {
+      "batch": "synthetic_20261015",
+      "source": "C:\\Users\\24171\\Desktop\\研\\GLiNER2\\annotation\\编造文本_出行链_2026-10-15\\synthetic_travel_chains.jsonl",
+      "rows": 20,
+      "sha256": "03b60c3e932cf1f4fd14cb0972d0e6818faeb270f18dce5e41e3bc11881d1dda",
+      "archive": "originals/synthetic_20261015.jsonl"
+    },
+    {
+      "batch": "synthetic_20261020",
+      "source": "C:\\Users\\24171\\Desktop\\研\\GLiNER2\\annotation\\编造文本_出行链_2026-10-20\\synthetic_travel_chains.jsonl",
+      "rows": 20,
+      "sha256": "2ce5301b283dce1dec9e54c75dde6866ae4246e91c61c5cff75f573da2ed7888",
+      "archive": "originals/synthetic_20261020.jsonl"
+    }
+  ],
+  "dataset_sha256": "eecb423c9f829f10b79999244d857db00af2f2f153c071d67c4c011af3638fae",
+  "projection": "Only person_evidence and field_evidence extensions omitted from trainer labels; originals archived verbatim"
+}

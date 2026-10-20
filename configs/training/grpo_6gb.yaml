@@ -1,0 +1,78 @@
+# Direct RL from the base model. No SFT weights or SFT stage.
+model:
+  model_name_or_path: /home/gollie/models/Qwen3-1.7B-modelscope
+
+data:
+  # Paths are relative to the Qwen project, independent of the launch directory.
+  annotation_files:
+    - ../../GLiNER2/annotation/人工已审核/approved_annotations.jsonl
+  synthetic_file: ../../GLiNER2/annotation/编造文本_出行链_2026-10-15/synthetic_travel_chains.jsonl
+  validation_ratio: 0.2
+
+reward_weights:
+  node: 1.0
+  edge: 1.0
+  time: 1.0
+  chain: 1.0
+  format: 1.0
+  unsupported: 1.0
+
+save_reward_trace: true
+
+lora:
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.0
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  output_dir: outputs/checkpoints/qwen3-1.7b-chain-grpo
+  num_train_epochs: 1
+  max_steps: -1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 8
+  # Generation batch includes repeated prompts: 2 candidates = 1 unique prompt.
+  generation_batch_size: 2
+  num_generations: 2
+  num_generations_eval: 2
+  # Enforced in preflight, not passed to TRL 0.29.1 (which removed this option).
+  max_prompt_length: 3072
+  max_completion_length: 1536
+  temperature: 0.8
+  top_p: 0.95
+  top_k: 0
+  use_vllm: false
+  generation_kwargs:
+    use_cache: true
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  learning_rate: 0.000005
+  lr_scheduler_type: cosine
+  warmup_steps: 0.03
+  optim: paged_adamw_8bit
+  max_grad_norm: 1.0
+  # KL follows TRL's estimator; beta is independent of the six reward weights.
+  beta: 0.04
+  use_bias_correction_kl: false
+  sync_ref_model: false
+  scale_rewards: group
+  multi_objective_aggregation: sum_then_normalize
+  loss_type: grpo
+  importance_sampling_level: token
+  num_iterations: 1
+  epsilon: 0.2
+  # Keep truncated candidates in the loss: they receive an invalid-format penalty.
+  mask_truncated_completions: false
+  logging_steps: 1
+  logging_first_step: true
+  log_completions: false
+  eval_strategy: "no"
+  save_strategy: steps
+  save_steps: 10
+  save_total_limit: 2
+  seed: 42
+  tf32: true

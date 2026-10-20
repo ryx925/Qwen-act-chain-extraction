@@ -1,0 +1,73 @@
+# Experiment B: same 34 passages/rewards as historical A; six candidates, serial rollouts.
+model:
+  model_name_or_path: /home/gollie/models/Qwen3-1.7B-modelscope
+data:
+  annotation_files:
+    - outputs/experiments/grpo_all_annotations_20261019_200315/dataset/all_annotations.jsonl
+  synthetic_file: null
+  validation_ratio: 0.0
+comparison:
+  baseline_run: outputs/experiments/grpo_all_annotations_20261019_200315/training
+rollout:
+  micro_batch_size: 1
+reward_weights:
+  node: 1.0
+  edge: 1.0
+  time: 1.0
+  chain: 1.0
+  format: 1.0
+  unsupported: 1.0
+save_reward_trace: true
+lora:
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.0
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+training:
+  output_dir: outputs/experiments/grpo_b_g6_serial
+  num_train_epochs: 1
+  max_steps: -1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 6
+  # A: 2 candidates * 2 passages/update = 4. B: 6 * 2 = 12.
+  gradient_accumulation_steps: 12
+  generation_batch_size: 6
+  num_generations: 6
+  num_generations_eval: 6
+  max_prompt_length: 3072
+  max_completion_length: 1024
+  temperature: 0.8
+  top_p: 0.95
+  top_k: 0
+  use_vllm: false
+  generation_kwargs:
+    use_cache: true
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  learning_rate: 5.0e-06
+  lr_scheduler_type: cosine
+  warmup_steps: 0.03
+  optim: paged_adamw_8bit
+  max_grad_norm: 1.0
+  beta: 0.04
+  use_bias_correction_kl: false
+  sync_ref_model: false
+  scale_rewards: group
+  multi_objective_aggregation: sum_then_normalize
+  loss_type: grpo
+  importance_sampling_level: token
+  num_iterations: 1
+  epsilon: 0.2
+  mask_truncated_completions: false
+  logging_steps: 1
+  logging_first_step: true
+  log_completions: false
+  eval_strategy: 'no'
+  save_strategy: steps
+  save_steps: 2
+  save_total_limit: 2
+  seed: 42
+  tf32: true

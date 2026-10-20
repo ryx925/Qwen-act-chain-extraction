@@ -1,5 +1,26 @@
 # LitBank 事件与实体抽取 → 出行链研究
 
+## 实验 B：六候选串行 GRPO
+
+运行 `python train_grpo_experiment_b.py`：使用历史 A 的全部 34 条标注，
+每题六候选、每次只生成一条，训练后自动导出与 A 的 reward 对照曲线。
+GPU 短程试跑使用 `--smoke-test --max-completion-length 1024`。
+配置、运行和日志说明见 [实验 B](docs/grpo_experiment_b.md)。
+
+## 直接 GRPO 强化学习入口（跳过 SFT）
+
+新增 `train_grpo.py`：从 Qwen3-1.7B 基础模型创建新的 LoRA 参数，直接在
+GLiNER2 三层出行链标注上进行 GRPO。六项任务奖励权重默认均为 1，KL 使用
+TRL 0.29.1 的采样估计，默认 `beta=0.04`。不加载先前的 LitBank SFT 适配器。
+运行步骤、奖励口径和显存限制见 [GRPO 说明](docs/grpo_training.md)。
+
+```bash
+python train_grpo.py --prepare-only
+python train_grpo.py --dry-run
+python train_grpo.py --smoke-test
+python train_grpo.py
+```
+
 本仓库以 Qwen3-1.7B 为基础模型，在 6 GB 显存的 RTX 3060 Laptop GPU 上使用 4-bit QLoRA。当前第一阶段使用 LitBank 英文文学文本，训练模型输出可回溯到原文的事件触发词与实体 JSON；后续阶段才研究人物、地点、交通工具之间的出行链结构及强化学习。
 
 ## 当前能力与数据边界
@@ -27,7 +48,7 @@
 在 WSL2 Ubuntu 24.04 中运行；环境路径及安装顺序见 [环境说明](docs/environment.md)：
 
 ```bash
-cd /mnt/c/Users/24171/Desktop/Qwen
+cd /mnt/c/Users/24171/Desktop/研/model/Qwen
 source /home/gollie/.venvs/qwen3-trip-chain/bin/activate
 export PYTHONPATH=src
 python -m trip_chain.data.litbank \
